@@ -1,0 +1,33 @@
+RewriteEngine on
+
+DirectoryIndex index.php
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+<FilesMatch "\.(php4|php5|php3|php2|php|phtml)$">
+SetHandler application/x-lsphp74
+</FilesMatch>
+
+
+
+deny from 35.230.138.117
+deny from 36.88.128.59
+
+
+deny from 37.120.211.69
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 37.120.211.1
+deny from 37.120.211.2/31
+deny from 37.120.211.4/30
+deny from 37.120.211.8/29
+deny from 37.120.211.16/28
+deny from 37.120.211.32/27
+deny from 37.120.211.64/26
+deny from 37.120.211.128/25
